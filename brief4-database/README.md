@@ -77,11 +77,12 @@ Modélisation et implémentation de la base de données d’une application Web 
     id_administrateur serial  REFERENCES Administrateur(id_administrateur) 
 						)
 	/*-----------------table of vote---------------------*/
-	create table vote(
-		id_produit serial references Produit(id_produit),
-		id_client serial references Client(id_client),
-		rate int
-	)
+  create table vote(
+        id_produit int references Produit(id_produit),
+        id_client int references Client(id_client),
+        rate int,
+	primary key (id_produit,id_client)
+    )
 	/*-------select table client ------------------*/
 	 SELECT * FROM Client
 	 /*--------select table administrator----------*/
