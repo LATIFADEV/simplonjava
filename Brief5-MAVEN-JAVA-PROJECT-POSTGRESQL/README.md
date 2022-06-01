@@ -1,4 +1,4 @@
-# 🏗️: Brief5
+# :mortar_board: CRUD 
 
 
 Application console afin de créer, modifier, supprimer et lister les candidats « CRUD »
