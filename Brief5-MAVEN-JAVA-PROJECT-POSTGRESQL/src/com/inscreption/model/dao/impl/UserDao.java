@@ -1,5 +1,7 @@
 package com.inscreption.model.dao.impl;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +12,7 @@ import com.inscreption.model.DB.DB;
 import com.inscreption.model.dao.DAO;
 
 
-public class UserDao extends DAO<User> {
+public class UserDao implements DAO<User> {
 
 	@Override
 	public User find(long id) {
@@ -48,52 +50,55 @@ public class UserDao extends DAO<User> {
 		System.out.println(e.getMessage());
 		return null;
 	}
-//	      try {
-//	           
-//	            ResultSet result = this    .connect
-//	                                    .createStatement(
-//	                                            ResultSet.TYPE_SCROLL_INSENSITIVE, 
-//	                                            ResultSet.CONCUR_UPDATABLE
-//	                                    ).executeQuery(
-//	                                            "SELECT NEXTVAL('developpeur_dev_id_seq') as id"
-//	                                    );
-//	            if(result.first()){
-//	                long id = result.getLong("id");
-//	                PreparedStatement prepare = this    .connect
-//	                                                    .prepareStatement(
-//	                                                        "INSERT INTO userr (id, firstname, lastname,email,adress,city,country)"+
-//	                                                        "VALUES(?, ?, ?, ?,?,?,?)"
-//	                                                    );
-//	                prepare.setLong(1, id);
-//	                prepare.setString(2, obj.getFirstname());
-//	                prepare.setString(3, obj.getLastname());
-//	                prepare.setString(4, obj.getEmail());
-//	                prepare.setString(5, obj.getAdresse());
-//	                prepare.setString(6, obj.getCity());
-//	                prepare.setString(7, obj.getCountry());
-//	                
-//	                prepare.executeUpdate();
-//	                obj = this.find(id);    
-//	                
-//	            }
-//	        } catch (SQLException e) {
-//	                e.printStackTrace();
-//	        }
-//	        return obj;
+
 	    }
 	
 
 	@Override
 	public User update(User obj) {
-		// TODO Auto-generated method stub
-		return null;
+		 try{    
+		      String sql = "UPDATE userr SET firstname=?,lastname=?, email =?,adress=?,city=?,country=? WHERE id=? ";
+		      PreparedStatement stmt = connect.prepareStatement(sql);
+		      stmt.setString(1,obj.getFirstname());
+		      stmt.setString(2,obj.getLastname());
+		      stmt.setString(3,obj.getEmail());
+		      stmt.setString(4,obj.getAdresse());
+		      stmt.setString(5,obj.getCity());
+		      stmt.setString(6,obj.getCountry());
+		      stmt.setInt(7, 4);
+		      System.out.println("Mise à jour...");
+		      stmt.execute();   
+		      connect.close();
+		      
+		      obj = this.find(obj.getIdUser());
+		      
+		      
+	            
+	        } catch (SQLException e) {
+	                e.printStackTrace();
+	        }
+		 return obj;
+	        
 	}
 
 	@Override
 	public void delete(User obj) {
-		// TODO Auto-generated method stub
+		try {
+		            
+		            this.connect    
+		                .createStatement(
+		                    ResultSet.TYPE_SCROLL_INSENSITIVE, 
+		                    ResultSet.CONCUR_UPDATABLE
+		                 ).executeUpdate(
+		                    "DELETE FROM userr WHERE id = " + obj.getIdUser()
+		                 );
 		
-	}
+		        } catch (SQLException e) {
+		                e.printStackTrace();
+		        }
+		    }
+		
+	
 	
 	
 

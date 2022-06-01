@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.inscreption.model.DB.DB;
  
-public abstract class DAO<T> {
+public interface  DAO<T> {
 
     public Connection connect = DB.getInstance();
     

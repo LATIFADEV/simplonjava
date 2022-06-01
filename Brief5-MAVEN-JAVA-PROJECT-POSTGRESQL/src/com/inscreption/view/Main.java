@@ -13,42 +13,75 @@ import com.inscreption.model.dao.impl.UserDao;
 public class Main {
 
 	public static void main(String[] args) {
+		 	
+		
+						Scanner scn = new Scanner(System.in);
+						System.out.println("choisiez votre opération: ");
+						System.out.println("1: Enregistrer");
+						System.out.println("2: Modifier");
+						System.out.println("3: Supprimer");
+					    int oper = scn.nextInt();
+		
 
-	 
-		
-		
 						Scanner inputfirstname = new Scanner(System.in);
 						System.out.print("Enter your firstname :  ");
 					    String firstname = inputfirstname.nextLine();
 						
 						Scanner inputlastname = new Scanner(System.in);
-						System.out.println("Entrer your lastname:  ");
+						System.out.print("Entrer your lastname:  ");
 						String lastname= inputlastname.nextLine();
 						
 						
 						Scanner inputcity = new Scanner(System.in);
-						System.out.println("Entrer your city:  ");
+						System.out.print("Entrer your city:  ");
 						String city= inputcity.nextLine();
 						
 						
 						Scanner inputemail = new Scanner(System.in);
-						System.out.println("Entrer your email:  ");
+						System.out.print("Entrer your email:  ");
 						String email= inputemail.nextLine();
 						
 						Scanner inputadress = new Scanner(System.in);
-						System.out.println("Entrer your adress:  ");
+						System.out.print("Entrer your adress:  ");
 					    String adress= inputadress.nextLine();
 						
 				       Scanner inputcountry = new Scanner(System.in);
-					   System.out.println("Entrer your Country:  ");
+					   System.out.print("Entrer your Country:  ");
 				       String country= inputadress.nextLine();
+				       
+				       
+				       if(oper==1) {
+				    	   UserDao userDao = new UserDao();
+				            User condidat= new User(firstname,  lastname,  email,  adress,  city, country);
+				            System.out.println(userDao.create(condidat));  
+				    	   
+				       }else if(oper==2) {
+				    	   UserDao userDao = new UserDao();
+				    	   User condidat = new User(firstname,  lastname,  email,  adress,  city, country);				    	    
+				    		System.out.println(userDao.update(condidat));
+				    	   
+				       }else if(oper==3) {	
+				    	   Scanner scn1 = new Scanner(System.in);
+						   System.out.print("choisissez le candidat que vous souhaitez de  supprimer par son id  ");
+						   UserDao userDao = new UserDao();
+				    	   User condidat = new User(firstname,  lastname,  email,  adress,  city, country);			
+					       int id= scn1.nextInt();
+				    	   userDao.delete(condidat);
+				    	 
+				    
+				       }
 			
 			
 			
-			            UserDao userDao = new UserDao();
-			            User condidat2= new User(firstname,  lastname,  email,  adress,  city, country);
-			            System.out.println(userDao.create(condidat2));
-					
+				       
+			           
+		
+				
+			           
+//			    		User condidat3 = new User(firstname,  lastname,  email,  adress,  city, country);
+//			    	    
+//			    		System.out.println(userDao.update(condidat3));
+//					
 					
 //			User condidat1= new User("AMOUGUAY", "Latifa","latifaamouguay@gmail.com","74 rue 22 lotis massira","Tantan","Maroc");
 //			User condidat2= new User(3,"RACHID", "najib","najib4@gmail.com","EL HOUDA","AGADIR","Maroc");
