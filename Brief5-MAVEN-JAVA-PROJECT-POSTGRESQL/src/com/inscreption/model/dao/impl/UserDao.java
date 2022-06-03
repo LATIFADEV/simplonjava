@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 import com.inscreption.domain.User;
@@ -38,7 +39,6 @@ public class UserDao implements DAO<User> {
 		ps.setString(5, obj.getCity());
 		ps.setString(6, obj.getCountry());
 		ps.execute();
-		
         connect.commit();
 		ps.close();
 		connect.close();
@@ -81,22 +81,40 @@ public class UserDao implements DAO<User> {
 	        
 	}
 
+	
+
+
 	@Override
-	public void delete(User obj) {
-		try {
-		            
-		            this.connect    
-		                .createStatement(
-		                    ResultSet.TYPE_SCROLL_INSENSITIVE, 
-		                    ResultSet.CONCUR_UPDATABLE
-		                 ).executeUpdate(
-		                    "DELETE FROM userr WHERE id = " + obj.getIdUser()
-		                 );
+	public  boolean delete(int id) {
+	    try {
+	        Statement stmt = connect.createStatement();
+	        int i = stmt.executeUpdate("DELETE FROM userr WHERE id=" + id);
+
+	      if(i == 1) {
+	        return true;
+	      }
+		    stmt.close();
+		    connect.close();
+
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	    }
+	    
+	    
+		return false;
+	
+	}
+
+	
+
 		
-		        } catch (SQLException e) {
-		                e.printStackTrace();
-		        }
-		    }
+			
+		
+		
+		
+		
+		
+		    
 		
 	
 	

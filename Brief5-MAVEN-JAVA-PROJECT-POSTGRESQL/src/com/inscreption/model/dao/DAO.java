@@ -33,7 +33,9 @@ public interface  DAO<T> {
      * Permet la suppression d'une entrée de la base
      * @param obj
      */
-    public abstract void delete(T obj);
+    public boolean delete(int id);
+
+
 }
 
 
