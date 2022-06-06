@@ -1,0 +1,9 @@
+com\product\domain\Product.class
+com\product\model\dao\impl\UserDao.class
+com\product\model\dao\DAO.class
+com\product\model\dao\impl\ProductDao.class
+com\product\view\Main.class
+com\product\domain\Categories.class
+com\product\domain\User.class
+com\product\model\dao\impl\CategoresDao.class
+com\product\model\DB\DB.class
