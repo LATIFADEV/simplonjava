@@ -1,0 +1,7 @@
+com\inscreption\model\db\DB.class
+application\Main.class
+com\inscreption\model\dao\impl\UserDAO.class
+com\inscreption\view\Main.class
+com\inscreption\model\dao\DAO.class
+com\inscreption\domain\User.class
+application\SampleController.class

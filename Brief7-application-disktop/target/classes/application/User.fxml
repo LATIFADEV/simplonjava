@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UserController">
+   <top>
+      <AnchorPane minHeight="600.0" minWidth="600.0" prefHeight="633.0" prefWidth="763.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="txtlstnm" layoutX="110.0" layoutY="119.0" promptText="LastName" />
+            <Button fx:id="btInsert" layoutX="508.0" layoutY="82.0" mnemonicParsing="false" onAction="#create" prefHeight="25.0" prefWidth="69.0" text="Insert" />
+            <Button fx:id="btnfind" layoutX="508.0" layoutY="42.0" mnemonicParsing="false" onAction="#find" prefHeight="25.0" prefWidth="68.0" text="Search" />
+            <Button fx:id="btnUpdate" layoutX="511.0" layoutY="157.0" mnemonicParsing="false" onAction="#update" prefHeight="25.0" prefWidth="69.0" text="Update" />
+            <TextField fx:id="txfnm" layoutX="110.0" layoutY="82.0" promptText="FirstName" />
+            <TextField fx:id="txid" layoutX="405.0" layoutY="42.0" prefHeight="18.0" prefWidth="73.0" />
+            <TextField fx:id="txtmail" layoutX="110.0" layoutY="157.0" promptText="E-mail" />
+            <TableView fx:id="tableView" layoutX="7.0" layoutY="272.0" prefHeight="200.0" prefWidth="587.0">
+              <columns>
+                  <TableColumn fx:id="clmnid" prefWidth="75.0" text="id" />
+                <TableColumn fx:id="clmnfrstnm" prefWidth="75.0" text="FirstName" />
+                <TableColumn fx:id="clmlstnm" prefWidth="89.0" text="LastName" />
+                  <TableColumn fx:id="clmnmail" prefWidth="123.0" text="E-mail" />
+                  <TableColumn fx:id="clmnadress" prefWidth="130.0" text="Adresse" />
+                  <TableColumn fx:id="clmncity" prefWidth="71.0" text="City" />
+                  <TableColumn fx:id="clmncntry" prefWidth="98.0" text="Country" />
+              </columns>
+            </TableView>
+            <Button fx:id="btndelete" layoutX="510.0" layoutY="119.0" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="68.0" text="Delete" />
+            <TextField fx:id="txtcity" layoutX="330.0" layoutY="119.0" promptText="City" />
+            <TextField fx:id="txtountry" layoutX="330.0" layoutY="157.0" promptText="Country" />
+            <TextField fx:id="txtadresse" layoutX="330.0" layoutY="82.0" promptText="Adresse" />
+         </children></AnchorPane>
+   </top>
+</BorderPane>
