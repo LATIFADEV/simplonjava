@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 import java.net.URL;
@@ -25,6 +26,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
 public class UserController implements Initializable {
+	public User user;
 	private UserDAO userDao = new UserDAO();
 
 	@FXML
@@ -64,13 +66,23 @@ public class UserController implements Initializable {
 	private  TableColumn<User,String>   clmncity;
 	@FXML
 	private  TableColumn<User,String>   clmncntry;
-	
+	@FXML
+	public void  ClickMous(MouseEvent event ) {
+		user= tableView.getSelectionModel().getSelectedItem();
+		txid.setText(String.valueOf(user.getIdUser()));
+		txtlstnm.setText(user.getLastname());
+		txtadresse.setText(user.getAdresse());
+		txtcity.setText(user.getCity());
+		txtmail.setText(user.getEmail());
+		txfnm.setText(user.getFirstname());
+		txtountry.setText(user.getCountry());
+	}
 	
 
 	// Event Listener on Button[#btInsert].onAction
 	@FXML
 	public void create(ActionEvent event) {
-		User  user2 = new User(txfnm.getText(),txtlstnm.getText() , txtmail.getText(), txtadresse.getText(), txtcity.getText(),txtountry.getText() );
+		User  user2 = new User( txid.getAnchor(), txfnm.getText(),txtlstnm.getText() , txtmail.getText(), txtadresse.getText(), txtcity.getText(),txtountry.getText() );
 		if(userDao.create(user2) !=null) {
 		data.addAll(userDao.getAll());
 		tableView.refresh();
@@ -108,46 +120,64 @@ public class UserController implements Initializable {
 	}
 	 @FXML
 	 public void find(ActionEvent event) {
-			 //Get Employee information
-	            userDao.find(0);
-	      
+		
 	
-		 
+	            long id = 0;
+				//Get all Employees information
+	            if(userDao.find(id) != null) {
+	            	tableView.setItems(data);
+	            }
+	           
+	            
+	        
+	            System.out.println("OOPS" );
+	        
 	 }
-	
-	
-	
-	@FXML
-	public void delete(ActionEvent event) {
-
-			User  user = tableView.getSelectionModel().getSelectedItem();
-			if(userDao.delete(user.getIdUser())){
-			if(user!=null)
-			data.remove(data.indexOf(user));
-		    }		
-		int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
-	    if (selectedIndex >= 0) {
-	        tableView.getItems().remove(selectedIndex);
-
-	    } else {
-	        // Row Not selected.
-	        Alert alert = new Alert(AlertType.WARNING);
-	        alert.setTitle("No Selection");
-	        alert.setHeaderText("No user Selected");
-	        alert.setContentText("Please select a usre in the table.");
-	        alert.showAndWait();            
+	 
+	 
+	 void clear() {
+		 txfnm.setText(null);
+		 txtlstnm.setText(null);
+		 txtmail.setText(null);
+		 txtadresse.setText(null);
+		 txtcity.setText(null);
+		 txtountry.setText(null);
 
 	    }
-		
-		
+	 
+
+	@FXML
+	public void delete(ActionEvent event) {
+	
+		int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
+	    if (selectedIndex >= 0) {
+	        tableView.getItems().remove(selectedIndex);            
+	    }
+	    User  user = tableView.getSelectionModel().getSelectedItem();
+		if(userDao.delete(user.getIdUser())){
+		if(user!=null)
+		data.remove(data.indexOf(user));
+	    }		
 	}
 	
 	@FXML
 	public void update(ActionEvent event) {
 		
 //	            userDao.update(clmnfrstnm.getText(),clmlstnm.getText(),clmnmail.getText(),clmnadress.getText(),clmncity.getText(),clmncntry.getText());
-			 User  user2 = new User(txfnm.getText(),txtlstnm.getText() , txtmail.getText(), txtadresse.getText(), txtcity.getText(),txtountry.getText() );
-			 userDao.update(user2);
+//			 User  user2 = new User(txfnm.getText(),txtlstnm.getText() , txtmail.getText(), txtadresse.getText(), txtcity.getText(),txtountry.getText() );
+//			 userDao.update(user2);
+			 user = new User();
+			 int userId  = Integer.parseInt(txid.getText());
+				user.setIdUser(userId);
+
+				user.setFirstname(txfnm.getText());
+				user.setLastname(txtlstnm.getText());
+				user.setEmail(txtmail.getText());
+				user.setAdresse(txtadresse.getText());
+				user.setCity(txtcity.getText());
+				user.setCountry(txtountry.getText());
+				userDao.update(6, user);
+				viewUsers();
 	           
 	        }
 	

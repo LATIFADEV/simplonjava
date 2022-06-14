@@ -12,9 +12,13 @@ public class User {
 	private String city;
 	private String country;
 	
-	
 	public User() {
 		
+	}
+	
+   public User(int id) {
+	   
+	   this.idUser = id;
 	}
 	
 	public User(String firstname, String lastname, String email, String adress, String city,

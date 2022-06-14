@@ -45,9 +45,9 @@ public class UserDAO implements DAO<User>{
 	
 
 	@Override
-	public User update(User obj) {
+	public User update(int id,User obj) {
 		 try{    
-		      String sql = "UPDATE userr SET firstname=?,lastname=?, email =?,adress=?,city=?,country=? WHERE id=? ";
+		      String sql = "UPDATE userr SET firstname=?,lastname=?, email =?,adress=?,city=?,country=? WHERE id= "+id;
 		      PreparedStatement stmt = connect.prepareStatement(sql);
 		      stmt.setString(1,obj.getFirstname());
 		      stmt.setString(2,obj.getLastname());
@@ -55,7 +55,8 @@ public class UserDAO implements DAO<User>{
 		      stmt.setString(4,obj.getAdresse());
 		      stmt.setString(5,obj.getCity());
 		      stmt.setString(6,obj.getCountry());
-		      stmt.setInt(7, 24);
+		      stmt.setInt(6, id);
+		      
 		      System.out.println("Mise à jour...");
 		      stmt.execute();   
 		      connect.close();

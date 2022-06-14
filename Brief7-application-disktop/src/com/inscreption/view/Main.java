@@ -15,9 +15,12 @@ public class Main {
 //		userDao.delete(33);
 //		
 //		System.out.println(userDao.getAll());
+//		User user = new User("nawal", "ALAMIEE", "nawal@gmail.com", "eljouda", "agadir", "Mroc");
+//		System.out.println(userDao.update(65, user));
 		
-	
-			System.out.println(userDao.find(70));
+		
+//	
+//			System.out.println(userDao.find(70));
 	
 		
 //		

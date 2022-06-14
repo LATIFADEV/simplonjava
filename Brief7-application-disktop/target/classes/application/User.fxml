@@ -18,7 +18,7 @@
             <TextField fx:id="txfnm" layoutX="110.0" layoutY="82.0" promptText="FirstName" />
             <TextField fx:id="txid" layoutX="405.0" layoutY="42.0" prefHeight="18.0" prefWidth="73.0" />
             <TextField fx:id="txtmail" layoutX="110.0" layoutY="157.0" promptText="E-mail" />
-            <TableView fx:id="tableView" layoutX="7.0" layoutY="272.0" prefHeight="200.0" prefWidth="587.0">
+            <TableView fx:id="tableView" layoutX="7.0" layoutY="272.0" onMouseClicked="#ClickMous" prefHeight="200.0" prefWidth="587.0">
               <columns>
                   <TableColumn fx:id="clmnid" prefWidth="75.0" text="id" />
                 <TableColumn fx:id="clmnfrstnm" prefWidth="75.0" text="FirstName" />
