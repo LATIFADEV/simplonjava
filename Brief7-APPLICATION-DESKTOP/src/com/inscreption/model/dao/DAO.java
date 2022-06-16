@@ -28,7 +28,7 @@ public interface DAO<T> {
 	     * Permet de mettre à jour les données d'une entrée dans la base 
 	     * @param obj
 	     */
-	    public abstract T update(int id,T obj) throws ClassNotFoundException;
+	    public abstract boolean update(int id,T obj);
 	    
 	    /*
 	     * Permet la suppression d'une entrée de la base

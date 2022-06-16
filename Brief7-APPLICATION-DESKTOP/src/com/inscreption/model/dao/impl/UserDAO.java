@@ -45,28 +45,35 @@ public class UserDAO implements DAO<User>{
 	
 
 	@Override
-	public User update(int id,User obj) {
-		 try{    
-		      String sql = "UPDATE userr SET firstname=?,lastname=?, email =?,adress=?,city=?,country=? WHERE id= "+id;
-		      PreparedStatement stmt = connect.prepareStatement(sql);
-		      stmt.setString(1,obj.getFirstname());
-		      stmt.setString(2,obj.getLastname());
-		      stmt.setString(3,obj.getEmail());
-		      stmt.setString(4,obj.getAdresse());
-		      stmt.setString(5,obj.getCity());
-		      stmt.setString(6,obj.getCountry());
-		      stmt.setInt(6, id);
-		      
-		      System.out.println("Mise à jour...");
-		      stmt.execute();   
-		      connect.close();
-		      
-//		      obj = this.find(obj.getIdUser());
-		        
-	        } catch (SQLException e) {
-	                e.printStackTrace();
-	        }
-		 return obj;
+	public boolean update(int id,User obj) {
+	      System.out.println("Mise à jour...");
+
+		
+		 try {
+			   
+		        PreparedStatement stmt = connect.prepareStatement("UPDATE userr SET firstname=?,lastname=?, email=?,adress=?,city=?,country=? WHERE id= ?");
+			      stmt.setString(1,obj.getFirstname());
+			      stmt.setString(2,obj.getLastname());
+			      stmt.setString(3,obj.getEmail());
+			      stmt.setString(4,obj.getAdresse());
+			      stmt.setString(5,obj.getCity());
+			      stmt.setString(6,obj.getCountry());
+			      stmt.setInt(7, id);
+			      int i = stmt.executeUpdate();
+
+			      
+			       if(i==1) {
+					      System.out.println("Mise à jour...");
+	                    return true;
+			       }
+	               
+			    stmt.close();
+
+		    } catch (SQLException ex) {
+		        ex.printStackTrace();
+		    }
+
+		    return false;
 	        
 	}
 
@@ -76,10 +83,10 @@ public class UserDAO implements DAO<User>{
 		String sql= "DELETE FROM userr WHERE id= ?";
 		try {
 			PreparedStatement pst = connect.prepareStatement(sql);
-			connect.setAutoCommit(false);
+//			connect.setAutoCommit(false);
 			pst.setInt(1, id);
 			pst.executeUpdate();
-	        connect.commit();
+//	        connect.commit();
 			pst.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -112,7 +119,7 @@ public class UserDAO implements DAO<User>{
 		
 	private static User getUserFromResultSet(ResultSet rs) throws SQLException
     {
-           User user = new User();
+            User user = new User();
             user.setIdUser(rs.getInt("id"));
 		   	user.setFirstname( rs.getString("firstname"));
 		    user.setLastname( rs.getString("lastname"));
@@ -132,7 +139,7 @@ public class UserDAO implements DAO<User>{
 		        Set<User> users = new HashSet<User>();
 		        
 		   	 while ( rs.next() ) {
-		 		connect.setAutoCommit(false);
+//		 		connect.setAutoCommit(false);
 
 			   	User user = new User();
 			   	user.setIdUser(rs.getInt("id"));
@@ -144,7 +151,7 @@ public class UserDAO implements DAO<User>{
 				user.setCountry( rs.getString("country"));
 			    users.add(user);
 		        }
-		        connect.commit();
+//		        connect.commit();
 				stmt.close();
 		        return users;
 

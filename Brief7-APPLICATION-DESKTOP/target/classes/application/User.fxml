@@ -33,6 +33,7 @@
             <TextField fx:id="txtcity" layoutX="330.0" layoutY="119.0" promptText="City" />
             <TextField fx:id="txtountry" layoutX="330.0" layoutY="157.0" promptText="Country" />
             <TextField fx:id="txtadresse" layoutX="330.0" layoutY="82.0" promptText="Adresse" />
+            <Button fx:id="btnclear" layoutX="513.0" layoutY="195.0" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="66.0" text="Clear" />
          </children></AnchorPane>
    </top>
 </BorderPane>

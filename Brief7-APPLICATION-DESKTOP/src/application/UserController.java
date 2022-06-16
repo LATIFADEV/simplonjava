@@ -26,22 +26,25 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
 public class UserController implements Initializable {
-	public User user;
+	
+	User user;
 	private UserDAO userDao = new UserDAO();
 
-	@FXML
-	private TextField txtlstnm;
 	@FXML
 	private Button btInsert;
 	@FXML
     private Button btndelete;
 	@FXML
 	private Button btnUpdate;
+	@FXML
+	private Button btnclear;
 	
 	@FXML
 	private TextField txid;
 	@FXML
 	private TextField txfnm;
+	@FXML
+	private TextField txtlstnm;
 	@FXML
 	private TextField txtmail;
 	@FXML
@@ -66,6 +69,8 @@ public class UserController implements Initializable {
 	private  TableColumn<User,String>   clmncity;
 	@FXML
 	private  TableColumn<User,String>   clmncntry;
+	
+	
 	@FXML
 	public void  ClickMous(MouseEvent event ) {
 		user= tableView.getSelectionModel().getSelectedItem();
@@ -78,7 +83,17 @@ public class UserController implements Initializable {
 		txtountry.setText(user.getCountry());
 	}
 	
+	@FXML 
+	 void clear() {
+		
+		 txfnm.setText(null);
+		 txtlstnm.setText(null);
+		 txtmail.setText(null);
+		 txtadresse.setText(null);
+		 txtcity.setText(null);
+		 txtountry.setText(null);
 
+	    }
 	// Event Listener on Button[#btInsert].onAction
 	@FXML
 	public void create(ActionEvent event) {
@@ -87,17 +102,18 @@ public class UserController implements Initializable {
 		data.addAll(userDao.getAll());
 		tableView.refresh();
      	userDao.getAll();	
+     	viewUsers();
 		}
 	}
 	
     private final ObservableList<User> data =	
         FXCollections.observableArrayList(
-        	new User(1, "LATIFA", "AMOUGUAY", "nawal@gmail.com", "eljouda", "agadir", "Mroc"),
-            new User(2, "ayoube", "ALAMI", "nawal@gmail.com", "eljouda", "agadir", "Mroc"),
-            new User(3,"said", "ALAMI", "nawal@gmail.com", "eljouda", "agadir", "Mroc"),
-            new User(4,"othman", "ALAMI", "nawal@gmail.com", "eljouda", "agadir", "Mroc"),
-            new User(5,"abdelali", "ALAMI", "nawal@gmail.com", "eljouda", "agadir", "Mroc"),
-            new User(6,"anass", "ALAMI", "nawal@gmail.com", "eljouda", "agadir", "Mroc")
+//        	new User(1, "LATIFA", "AMOUGUAY", "nawal@gmail.com", "eljouda", "agadir", "Mroc"),
+//            new User(2, "ayoube", "ALAMI", "nawal@gmail.com", "eljouda", "agadir", "Mroc"),
+//            new User(3,"said", "ALAMI", "nawal@gmail.com", "eljouda", "agadir", "Mroc"),
+//            new User(4,"othman", "ALAMI", "nawal@gmail.com", "eljouda", "agadir", "Mroc"),
+//            new User(5,"abdelali", "ALAMI", "nawal@gmail.com", "eljouda", "agadir", "Mroc"),
+//            new User(6,"anass", "ALAMI", "nawal@gmail.com", "eljouda", "agadir", "Mroc")
             
         );
 	@Override
@@ -105,8 +121,10 @@ public class UserController implements Initializable {
 		viewUsers();
 		
 		
+		
 	}
 	public void viewUsers() {
+		data.clear();
 		data.addAll(userDao.getAll());
 		clmnid.setCellValueFactory(new PropertyValueFactory<User, Integer>("idUser"));
 		clmnfrstnm.setCellValueFactory(new PropertyValueFactory<User, String>("firstname"));
@@ -134,50 +152,56 @@ public class UserController implements Initializable {
 	        
 	 }
 	 
-	 
-	 void clear() {
-		 txfnm.setText(null);
-		 txtlstnm.setText(null);
-		 txtmail.setText(null);
-		 txtadresse.setText(null);
-		 txtcity.setText(null);
-		 txtountry.setText(null);
 
-	    }
 	 
 
 	@FXML
 	public void delete(ActionEvent event) {
-	
-		int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
-	    if (selectedIndex >= 0) {
-	        tableView.getItems().remove(selectedIndex);            
-	    }
+		
 	    User  user = tableView.getSelectionModel().getSelectedItem();
+	    int selectedIndex = tableView.getSelectionModel().getSelectedIndex();
 		if(userDao.delete(user.getIdUser())){
 		if(user!=null)
 		data.remove(data.indexOf(user));
-	    }		
-	}
+	    }	
+		else if (selectedIndex >= 0) {
+	        tableView.getItems().remove(selectedIndex);            
+	    }
+		
+	}	
 	
 	@FXML
 	public void update(ActionEvent event) {
 		
-//	            userDao.update(clmnfrstnm.getText(),clmlstnm.getText(),clmnmail.getText(),clmnadress.getText(),clmncity.getText(),clmncntry.getText());
-//			 User  user2 = new User(txfnm.getText(),txtlstnm.getText() , txtmail.getText(), txtadresse.getText(), txtcity.getText(),txtountry.getText() );
+		
+//		 User  user = new User(177, "a", "b" ,"c", "d", "e", "f" );	
+		
+//		 User  user = 
+//				 new User(Integer.parseInt(txid.getText()),txfnm.getText(),txtlstnm.getText() , txtmail.getText(), txtadresse.getText(), txtcity.getText(),txtountry.getText() );
+//		         tableView.getSelectionModel().getSelectedItem();
+//			System.out.println(user);
+//			 System.out.println(userDao.update(Integer.parseInt(txid.getText()), user)); 
+//			 User  selectedUser =   tableView.getSelectionModel().getSelectedItem();
+//			 selectedUser = user;
 //			 userDao.update(user2);
-			 user = new User();
-			 int userId  = Integer.parseInt(txid.getText());
-				user.setIdUser(userId);
 
+			 
+			    
+//			    int userId  = Integer.parseInt(txid.getText());
+		  User  user =  tableView.getSelectionModel().getSelectedItem();
+				user.setIdUser(Integer.parseInt(txid.getText()));
 				user.setFirstname(txfnm.getText());
 				user.setLastname(txtlstnm.getText());
 				user.setEmail(txtmail.getText());
 				user.setAdresse(txtadresse.getText());
 				user.setCity(txtcity.getText());
 				user.setCountry(txtountry.getText());
-				userDao.update(6, user);
+				System.out.println(userDao.update(Integer.parseInt(txid.getText()), user)); 
 				viewUsers();
+//			    userDao.update(userId, user);
+				 
+				
+				
 	           
 	        }
 	

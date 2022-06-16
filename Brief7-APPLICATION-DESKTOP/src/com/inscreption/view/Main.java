@@ -16,7 +16,7 @@ public class Main {
 //		
 //		System.out.println(userDao.getAll());
 //		User user = new User("nawal", "ALAMIEE", "nawal@gmail.com", "eljouda", "agadir", "Mroc");
-//		System.out.println(userDao.update(65, user));
+//		System.out.println(userDao.update(74, user));
 		
 		
 //	
