@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TaskController">
+   <children>
+      <TextArea fx:id="AreaDescription" layoutX="29.0" layoutY="120.0" prefHeight="135.0" prefWidth="200.0" promptText="Description" />
+      <Label layoutX="4.0" layoutY="8.0" prefHeight="31.0" prefWidth="125.0" text="To do list">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TitleFiled" layoutX="28.0" layoutY="87.0" promptText="Title" />
+      <DatePicker fx:id="PickDedline" layoutX="30.0" layoutY="273.0" promptText="Start Date" />
+      <ComboBox fx:id="comb" layoutX="402.0" layoutY="39.0" prefWidth="150.0" promptText="Categorie" />
+      <CheckBox fx:id="checkNotyet" layoutX="27.0" layoutY="345.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="not yet " />
+      <CheckBox fx:id="checkInprogress" layoutX="27.0" layoutY="409.0" mnemonicParsing="false" text="In progress" />
+      <CheckBox fx:id="checkCompleted" layoutX="28.0" layoutY="377.0" mnemonicParsing="false" text="Completed" />
+      <Button layoutX="297.0" layoutY="87.0" minWidth="38.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="38.0" text="➕" />
+      <Button layoutX="832.0" layoutY="87.0" minWidth="38.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="38.0" text="➕" />
+      <Button layoutX="576.0" layoutY="87.0" minWidth="38.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="38.0" text="➕" />
+      <TextField layoutX="378.0" layoutY="87.0" promptText="Sprint" />
+      <TextField layoutX="643.0" layoutY="88.0" promptText="add list" />
+      <TextField layoutX="907.0" layoutY="89.0" promptText="add list" />
+      <Button fx:id="BtnSave" layoutX="799.0" layoutY="407.0" mnemonicParsing="false" onAction="#create" prefHeight="30.0" prefWidth="114.0" text="Save" />
+      <Button fx:id="BtnCancel" layoutX="944.0" layoutY="407.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="107.0" text="Cancel" />
+      <TableView fx:id="tableView" layoutX="430.0" layoutY="173.0" prefHeight="200.0" prefWidth="536.0">
+        <columns>
+          <TableColumn fx:id="clmnTitle" prefWidth="112.0" text="Title" />
+          <TableColumn fx:id="clmndescription" prefWidth="99.0" text="Descripton" />
+            <TableColumn fx:id="clmnDedline" prefWidth="92.0" text="Start Date" />
+            <TableColumn fx:id="clmlstatut" prefWidth="55.0" text="Statut" />
+            <TableColumn minWidth="0.0" prefWidth="0.0" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
