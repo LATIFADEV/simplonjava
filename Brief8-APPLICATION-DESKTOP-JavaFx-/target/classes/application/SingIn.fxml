@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="721.0" prefWidth="544.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SingInController">
+   <children>
+      <ImageView fx:id="BtnCancel" fitHeight="982.0" fitWidth="578.0" layoutX="-8.0" layoutY="-258.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@flou1.JPG" />
+         </image>
+      </ImageView>
+      <TextField fx:id="FiledFirstname" layoutX="121.0" layoutY="186.0" prefHeight="40.0" prefWidth="306.0" promptText="Firstname" style="-fx-background-color: transparent; -fx-border-color: #900C3F; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="FiledLastName" layoutX="123.0" layoutY="240.0" prefHeight="40.0" prefWidth="306.0" promptText="Lastname" style="-fx-background-color: transparent; -fx-border-color: #900C3F; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="FiledUserName" layoutX="122.0" layoutY="293.0" prefHeight="40.0" prefWidth="312.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: #900C3F; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="FiledPassword" layoutX="125.0" layoutY="351.0" prefHeight="40.0" prefWidth="312.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #900C3F; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Button fx:id="BtnEnregistrer" layoutX="197.0" layoutY="416.0" mnemonicParsing="false" onAction="#create" prefHeight="54.0" prefWidth="150.0" style="-fx-background-color: #2f2f2fa3; -fx-font-weight: bold; -fx-font-family: Quicksan; -fx-background-radius: 100; -fx-text-fill: white;" text="Enregister">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="125.0" layoutY="135.0" prefHeight="39.0" prefWidth="104.0" text="Signup">
+         <font>
+            <Font size="31.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.41706161137440756" endY="0.5260663507109005" startX="0.24170616113744076" startY="0.48815165876777256">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.13640351593494415" green="0.06578947603702545" blue="0.15789473056793213" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.8157894611358643" green="0.7571860551834106" blue="0.744030237197876" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Button fx:id="ButtonCancel" layoutX="199.0" layoutY="480.0" mnemonicParsing="false" onAction="#Close" prefHeight="54.0" prefWidth="150.0" style="-fx-background-color: #2f2f2fa3; -fx-background-radius: 100; -fx-text-fill: white; -fx-font-family: Quicksan; -fx-font-weight: bold;" text="Cancel">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

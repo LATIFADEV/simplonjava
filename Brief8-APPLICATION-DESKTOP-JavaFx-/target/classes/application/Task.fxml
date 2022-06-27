@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="select" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="1110.0" style="-fx-background-color: #FFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TaskController">
+   <children>
+      <TextArea fx:id="AreaDescription" layoutX="17.0" layoutY="121.0" prefHeight="135.0" prefWidth="200.0" promptText="Description" style="-fx-background-color: TRANSPARENT; -fx-border-width: 0px 0px 2px 0px 0px; -fx-border-color: #A93226;" />
+      <Label layoutX="103.0" layoutY="8.0" prefHeight="31.0" prefWidth="125.0" text="My To do list">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TitleFiled" layoutX="28.0" layoutY="87.0" promptText="Title" style="-fx-background-color: TRANSPARENT; -fx-border-width: 0px 0px 2px 0px 0px; -fx-border-color: #A93226;" />
+      <ComboBox fx:id="comb" layoutX="303.0" layoutY="161.0" prefWidth="150.0" promptText="Categorie" style="-fx-background-color: TRANSPARENT; -fx-border-color: #A93226;" />
+      <Button layoutX="297.0" layoutY="87.0" minWidth="38.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="38.0" style="-fx-background-color: #CD5C5C;" text="➕" />
+      <Button layoutX="832.0" layoutY="87.0" minWidth="38.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="38.0" style="-fx-background-color: #CD5C5C;" text="➕" />
+      <Button layoutX="576.0" layoutY="87.0" minWidth="38.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="38.0" style="-fx-background-color: #CD5C5C;" text="➕" />
+      <TextField layoutX="378.0" layoutY="87.0" promptText="Sprint" style="-fx-background-color: TRANSPARENT; -fx-border-width: 0px 0px 2px 0px 0px; -fx-border-color: #A93226;" />
+      <TextField layoutX="643.0" layoutY="88.0" promptText="add list" style="-fx-background-color: TRANSPARENT; -fx-border-width: 0px 0px 2px 0px 0px; -fx-border-color: #A93226;" />
+      <TextField layoutX="907.0" layoutY="89.0" promptText="add list" style="-fx-background-color: TRANSPARENT; -fx-border-width: 0px 0px 2px 0px 0px; -fx-border-color: #A93226;" />
+      <Button fx:id="BtnSave" layoutX="799.0" layoutY="407.0" mnemonicParsing="false" onAction="#create" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: TRANSPARENT; -fx-text-fill: black; -fx-border-color: #A93226;" text="Save" />
+      <Button fx:id="BtnCancel" layoutX="944.0" layoutY="407.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: TRANSPARENT; -fx-text-fill: black; -fx-border-color: #A93226;" text="Cancel" />
+      <RadioButton fx:id="RadioNotYet" layoutX="30.0" layoutY="337.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #E74C3C;" text="Not_yet" />
+      <RadioButton fx:id="RadioCompleted" layoutX="32.0" layoutY="409.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #58D68D;" text="Completed" />
+      <RadioButton fx:id="RadioIn_Progress" layoutX="31.0" layoutY="373.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #F1C40F;" text="In_progress" />
+      <DatePicker fx:id="datpicker" layoutX="17.0" layoutY="286.0" promptText="datpicker" style="-fx-background-color: TRANSPARENT; -fx-border-color: #A93226;" />
+      <Button layoutX="5.0" layoutY="-1.0" mnemonicParsing="false" onAction="#switchToTask2" style="-fx-background-color: transparent;" text="⟲" textFill="#1b1919">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
