@@ -1,3 +1,4 @@
+<%@page import="net.javahibernate.usermanagment.dao.EmployeeDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -26,23 +27,32 @@
                 <th>Adresse</th>
                 <th>Contact</th>
             </tr>
-            <c:forEach var="employee" items="${listEmployee}">
+            <%@page import="net.javahibernate.usermanagment.model.Employee"%>
+	
+	<%
+	EmployeeDao employeeDao = new EmployeeDao();
+	
+	%>
+          <%--   <c:forEach var="employee" items="${listEmployee}"> --%>
+            <%	for (Employee employee : employeeDao.getAllEmployee()) {
+										%>
             
-            <td><c:out value="${listEmployee}" /></td>
                 <tr>
-                    <td><c:out value="${employee.id_employees}" /></td>
-                    <td><c:out value="${employee.firstname}" /></td>
-                    <td><c:out value="${employee.lastname}" /></td>
-                    <td><c:out value="${employee.email}" /></td>
-                    <td><c:out value="${employee.Adress}" /></td>
-                    <td><c:out value="${employee.Contact}" /></td> 
+                  <td><%= employee.getId_employee() %>  </td>
+                  <td><%= employee.getFirstname() %>  </td>
+                  <td><%= employee.getLastname() %>  </td>
+                  <td><%= employee.getEmail() %>  </td>
+                  <td><%= employee.getAdress() %>  </td>
+                  <td><%= employee.getContact()%>  </td>
                     <td>
-                     <a href="edit?id_employees=<c:out value='${employee.id_employees}' />">Edit</a>
+                     <a href="edit?id_employees=<%= employee.getId_employee() %>">Edit</a>
                      &nbsp;&nbsp;&nbsp;&nbsp;
-                     <a href="delete?id_employees=<c:out value='${employee.id_employees}' />">Delete</a>                     
+                     <a href="delete?id_employees=<%= employee.getId_employee() %>">Delete</a>                     
                     </td>
                 </tr>
-            </c:forEach>
+            <%-- </c:forEach> --%>
+            <%  } %>
+            
         </table>
     </div> 
 </body>

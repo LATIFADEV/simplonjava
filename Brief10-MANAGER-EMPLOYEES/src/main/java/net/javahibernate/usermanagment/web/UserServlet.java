@@ -67,8 +67,8 @@ public class UserServlet extends HttpServlet {
     throws SQLException, IOException, ServletException {
         List < Employee > listEmployee = employeeDao.getAllEmployee();
         System.out.println(listEmployee);
-        request.setAttribute("listUser", listEmployee);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("CRUD.jsp");
+        request.setAttribute("listEmployee", listEmployee);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Employees-list.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -80,10 +80,10 @@ public class UserServlet extends HttpServlet {
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
     throws SQLException, ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("id_employees"));
         Employee existingUser = employeeDao.getEmployee(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("Employees-form.jsp");
-        request.setAttribute("user", existingUser);
+        request.setAttribute("employee", existingUser);
         dispatcher.forward(request, response);
 
     }
@@ -117,6 +117,7 @@ public class UserServlet extends HttpServlet {
     private void deleteEmployee(HttpServletRequest request, HttpServletResponse response)
     throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("id_employees"));
+        System.out.println("hhhhh"+id);
         employeeDao.deleteEmployee(id);
         response.sendRedirect("list");
     }

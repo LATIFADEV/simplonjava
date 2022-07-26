@@ -117,11 +117,11 @@ import javax.persistence.Table;
 			return Contact;
 		}
 
-//		@Override
-//		public String toString() {
-//			return "Employee [id_employees=" + id_employees + ", firstname=" + firstname + ", lastname=" + lastname
-//					+ ", email=" + email + ", Adress=" + Adress + ", Contact=" + Contact + "]";
-//		}
+		@Override
+		public String toString() {
+			return "Employee [id_employees=" + id_employees + ", firstname=" + firstname + ", lastname=" + lastname
+					+ ", email=" + email + ", Adress=" + Adress + ", Contact=" + Contact + "]";
+		}
 
 		/**
 		 * @param contact the contact to set
@@ -130,10 +130,6 @@ import javax.persistence.Table;
 			Contact = contact;
 		}
 
-		@Override
-		public String toString() {
-			return "Employee [id_employees=" + id_employees + "]";
-		}
-
+	
 
 }
