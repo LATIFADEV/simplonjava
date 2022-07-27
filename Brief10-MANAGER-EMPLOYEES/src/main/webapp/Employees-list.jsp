@@ -31,7 +31,6 @@
 	
 	<%
 	EmployeeDao employeeDao = new EmployeeDao();
-	
 	%>
           <%--   <c:forEach var="employee" items="${listEmployee}"> --%>
             <%	for (Employee employee : employeeDao.getAllEmployee()) {

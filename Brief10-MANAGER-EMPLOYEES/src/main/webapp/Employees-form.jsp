@@ -22,6 +22,7 @@
         <c:if test="${employee == null}">
    <form action="insert" method="post">
         </c:if>
+          
         <table border="1" cellpadding="5">
             <caption>
              <h2>
@@ -34,13 +35,13 @@
              </h2>
             </caption>
           <c:if test="${employee != null}">
-           <input type="hidden" name="id" value="<c:out value='${employee.id_employees}' />" />
+           <input type="hidden" name="id" value="<c:out value='${employee.getId_employee()}' />" />
           </c:if>            
             <tr>
                 <th>Employee FirstName: </th>
                 <td>
                  <input type="text" name="firstname" size="45"
-                   value="<c:out value='${employee.firstname}' />"
+                   value="<c:out value='${employee.getFirstname()}' />"
                   />
                 </td>
             </tr>
@@ -48,7 +49,7 @@
                 <th>Employee LastName: </th>
                 <td>
                  <input type="text" name="lastname" size="45"
-                   value="<c:out value='${employee.lastname}' />"
+                   value="<c:out value='${employee.getLastname()}' />"
                   />
                 </td>
             </tr>
@@ -56,23 +57,23 @@
                 <th>Employee Email: </th>
                 <td>
                  <input type="text" name="email" size="45"
-                   value="<c:out value='${employee.email}' />"
+                   value="<c:out value='${employee.getEmail()}' />"
                  />
                 </td>
             </tr>
             <tr>
-                <th>Employee Adresse: </th>
+                <th>Employee Adress: </th>
                 <td>
-                 <input type="text" name="Adress" size="45"
-                   value="<c:out value='${employee.Adress}' />"
-                  />
+                 <input type="text" name="adress" size="45"
+                   value="<c:out value='${employee.getAdress()}' />"
+                 />
                 </td>
             </tr>
-            <tr>
+            
                 <th>Contact: </th>
                 <td>
                  <input type="text" name="contact" size="15"
-                   value="<c:out value='${employee.contact}' />"
+                   value="<c:out value='${employee.getContact()}' />"
                  />
                 </td>
             </tr>

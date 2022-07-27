@@ -81,9 +81,9 @@ public class UserServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
     throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id_employees"));
-        Employee existingUser = employeeDao.getEmployee(id);
+        Employee existingEmployee = employeeDao.getEmployee(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("Employees-form.jsp");
-        request.setAttribute("employee", existingUser);
+        request.setAttribute("employee", existingEmployee);
         dispatcher.forward(request, response);
 
     }
