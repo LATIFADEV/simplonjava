@@ -35,7 +35,7 @@
              </h2>
             </caption>
           <c:if test="${employee != null}">
-           <input type="hidden" name="id" value="<c:out value='${employee.getId_employee()}' />" />
+           <input type="hidden" name="id_employees" value="<c:out value='${employee.getId_employee()}' />" />
           </c:if>            
             <tr>
                 <th>Employee FirstName: </th>

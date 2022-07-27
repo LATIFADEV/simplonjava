@@ -50,6 +50,7 @@ public class UserServlet extends HttpServlet {
                     showEditForm(request, response);
                     break;
                 case "/update":
+                	System.out.print(123344);
                     updateEmployee(request, response);
                     break;
                 default:
@@ -109,7 +110,7 @@ public class UserServlet extends HttpServlet {
         String adress = request.getParameter("adress");
         String contact = request.getParameter("contact");
 
-        Employee employee = new Employee(firstname,lastname,email,adress,contact);
+        Employee employee = new Employee(id,firstname,lastname,email,adress,contact);
         employeeDao.updateEmployee(employee);
         response.sendRedirect("list");
     }
@@ -117,7 +118,6 @@ public class UserServlet extends HttpServlet {
     private void deleteEmployee(HttpServletRequest request, HttpServletResponse response)
     throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("id_employees"));
-        System.out.println("hhhhh"+id);
         employeeDao.deleteEmployee(id);
         response.sendRedirect("list");
     }

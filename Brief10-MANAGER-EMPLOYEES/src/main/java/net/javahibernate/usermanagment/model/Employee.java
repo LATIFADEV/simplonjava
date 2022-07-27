@@ -13,6 +13,7 @@ import javax.persistence.Table;
 	public class Employee {
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		@Column(name="id_employees")
 		private Integer id_employees;
 		@Column(name="firstname")
 		private String firstname;
@@ -29,6 +30,17 @@ import javax.persistence.Table;
 			super();
 		}
 		
+		public Employee(Integer id_employees, String firstname, String lastname, String email, String adress,
+				String contact) {
+			super();
+			this.id_employees = id_employees;
+			this.firstname = firstname;
+			this.lastname = lastname;
+			this.email = email;
+			Adress = adress;
+			Contact = contact;
+		}
+
 		public Employee(String firstname, String lastname, String email, String adress,
 				String contact) {
 			super();
@@ -50,7 +62,7 @@ import javax.persistence.Table;
 		/**
 		 * @param id_employee the id_employee to set
 		 */
-		public void setId_employee(Integer id_employees) {
+		public void setId_employees(Integer id_employees) {
 			this.id_employees = id_employees;
 		}
 

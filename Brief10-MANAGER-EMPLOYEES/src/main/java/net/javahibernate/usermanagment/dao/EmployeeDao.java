@@ -10,9 +10,9 @@ import net.javahibernate.usermanagment.util.HibernateUtil;
 
 public class EmployeeDao {
 	
-   
-	    /**      
-	     * Save Employe e
+
+	    /**
+	     * Save Employee
 	     * @param employee
 	     */
 	    public void saveEmployee(Employee employee) {

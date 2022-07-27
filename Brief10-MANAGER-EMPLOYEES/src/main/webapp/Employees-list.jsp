@@ -44,9 +44,9 @@
                   <td><%= employee.getAdress() %>  </td>
                   <td><%= employee.getContact()%>  </td>
                     <td>
-                     <a href="edit?id_employees=<%= employee.getId_employee() %>">Edit</a>
+                     <a href="edit?id_employees=<%=employee.getId_employee()%>">Edit</a>
                      &nbsp;&nbsp;&nbsp;&nbsp;
-                     <a href="delete?id_employees=<%= employee.getId_employee() %>">Delete</a>                     
+                     <a href="delete?id_employees=<%=employee.getId_employee()%>">Delete</a>                     
                     </td>
                 </tr>
             <%-- </c:forEach> --%>
