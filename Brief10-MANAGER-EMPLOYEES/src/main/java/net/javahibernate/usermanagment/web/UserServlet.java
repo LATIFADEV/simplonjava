@@ -69,7 +69,7 @@ public class UserServlet extends HttpServlet {
         List < Employee > listEmployee = employeeDao.getAllEmployee();
         System.out.println(listEmployee);
         request.setAttribute("listEmployee", listEmployee);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("Employees-list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
     }
 

@@ -45,7 +45,7 @@ public class LoginController extends HttpServlet {
 				        String password = request.getParameter("password");
 
 				        if (loginDao.validate(username, password)) {
-				        	response.sendRedirect("Employees-list.jsp");
+				        	response.sendRedirect("index.jsp");
 				            
 				        } else {
 				            throw new Exception("Login not successful..");
