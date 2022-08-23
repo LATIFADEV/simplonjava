@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 import lombok.Data;
 @Entity
-
+@Cacheable(false)
 @DiscriminatorValue("participant")
 public class Participant extends Users {
 	
@@ -18,8 +18,9 @@ public class Participant extends Users {
 
     @Column(name = "structure")
     private String structure;
-    @OneToMany(mappedBy="participant")
-    private Collection<Activitie> activitie;
+    
+    @ManyToMany(mappedBy = "participants", fetch = FetchType.EAGER)
+    private Collection<Activitie> activities;
    
     
    

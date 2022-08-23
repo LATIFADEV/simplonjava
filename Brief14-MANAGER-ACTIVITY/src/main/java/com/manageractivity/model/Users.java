@@ -2,6 +2,7 @@ package com.manageractivity.model;
 
 import java.util.Set;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
@@ -15,9 +16,10 @@ import javax.persistence.OneToMany;
 import lombok.Data;
 @Entity
 @Data
+@Cacheable(false)
 @Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name="Roles")
-public class Users {
+@DiscriminatorColumn(name="roles")
+public abstract class Users {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	 private Long id;
