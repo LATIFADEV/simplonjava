@@ -35,41 +35,41 @@ public class UserController {
 	  @PostMapping
 	  @ResponseStatus(HttpStatus.CREATED)
 	  public Users addEmployee(@RequestBody Users user) {
-	    return userService.addUser(user);
+	    return userService.create(user);
 	  }
 	  // Fetch all user records
-	  @GetMapping
-	  public List<Users> getAllUsers(){
-	    return userService.getAllUsers();
-	  }
-	  // Fetch single user
-	  @GetMapping("/{id}")
-	  public Users getUserById(@PathVariable("id") int userId){
-	    return userService.getUserById(userId);
-	  }
-	  // Update user record
-	  @PutMapping("/updateuser")
-	  public ResponseEntity<String> updateUser(@RequestBody Users user) {  
-	    try {
-	      userService.updateUser(user);
-	      return new ResponseEntity<String>(HttpStatus.OK);
-	    }catch(NoSuchElementException ex){
-	      // log the error message
-	      System.out.println(ex.getMessage());
-	      return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
-	    }
-	  }
-	  // Delete user record
-	  @DeleteMapping("/{id}")
-	  public ResponseEntity<String> deleteUser(@PathVariable int id){
-	    try {
-	      userService.deleteUserById(id);
-	      return new ResponseEntity<String>(HttpStatus.OK);
-	    }catch(RuntimeException ex){
-	      // log the error message
-	      System.out.println(ex.getMessage());
-	      return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
-	    }
-	  }
+//	  @GetMapping
+//	  public List<Users> getAllUsers(){
+//	    return userService.getAllUsers();
+//	  }
+//	  // Fetch single user
+//	  @GetMapping("/{id}")
+//	  public Users getUserById(@PathVariable("id") int userId){
+//	    return userService.getUserById(userId);
+//	  }
+//	  // Update user record
+//	  @PutMapping("/updateuser")
+//	  public ResponseEntity<String> updateUser(@RequestBody Users user) {  
+//	    try {
+//	      userService.updateUser(user);
+//	      return new ResponseEntity<String>(HttpStatus.OK);
+//	    }catch(NoSuchElementException ex){
+//	      // log the error message
+//	      System.out.println(ex.getMessage());
+//	      return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+//	    }
+//	  }
+//	  // Delete user record
+//	  @DeleteMapping("/{id}")
+//	  public ResponseEntity<String> deleteUser(@PathVariable int id){
+//	    try {
+//	      userService.deleteUserById(id);
+//	      return new ResponseEntity<String>(HttpStatus.OK);
+//	    }catch(RuntimeException ex){
+//	      // log the error message
+//	      System.out.println(ex.getMessage());
+//	      return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+//	    }
+//	  }
 
 }
