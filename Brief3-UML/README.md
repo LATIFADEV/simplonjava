@@ -11,9 +11,9 @@ This is the design and modeling of a web application for the management of the d
 ## Project Scope Statement
 
 <div style="display:flex">
-<img src="/brief3-uml/1.PNG" height="200" width="300"/>
-<img src="/brief3-uml/2.PNG" height="200" width="300"/>
-<img src="/brief3-uml/3.PNG" height="200" width="300"/>
+<img src="/Brief3-UML/1.PNG" height="200" width="300"/>
+<img src="/Brief3-UML/2.PNG" height="200" width="300"/>
+<img src="/Brief3-UML/3.PNG" height="200" width="300"/>
 </div>
 
 [DAWA ONLINE Project Scope Statement(Cahier des charges).](https://docs.google.com/document/d/178EekYXop8qBlup-9tgHHsHsoBnMRFVh21kGySCk4hU/edit?usp=sharing)
@@ -21,9 +21,9 @@ This is the design and modeling of a web application for the management of the d
 ## Use case diagram
 
 <div style="display:flex">
-<img src="/brief3-uml/admin.png" height="200" width="300"/>
-<img src="/brief3-uml/manager%26pharmacist.png" height="200" width="300"/>
-<img src="/brief3-uml/client.png" height="200" width="300"/>
+<img src="/Brief3-UML/admin.png" height="200" width="300"/>
+<img src="/Brief3-UML/manager%26pharmacist.png" height="200" width="300"/>
+<img src="/Brief3-UML/client.png" height="200" width="300"/>
 </div>
 
 [cas_dutilisation_pharmacist.oom](/brief3-uml/cas_dutilisation_pharmacist.oom)
@@ -31,7 +31,7 @@ This is the design and modeling of a web application for the management of the d
 ## Class diagram
 
 <div style="display:flex">
-<img src="/brief3-uml/class_diagram.png" height="200" width="300"/>
+<img src="/Brief3-UML/class_diagram.png" height="200" width="300"/>
 </div>
 
 [Diagramme_de_classes.moo](/brief3-uml/Diagramme_de_classes.moo)
